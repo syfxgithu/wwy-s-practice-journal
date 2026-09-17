@@ -1,0 +1,95 @@
+#include<stdio.h>
+int main() {
+	printf("请输入你一共需要输入几个数字，要输入正整数");
+	int number = 0;
+	int input = 0;
+	int max = 0;
+	int min = 0;
+	int record = 1;
+	scanf_s("%d", &number);
+	for (;1;record++) {
+		
+		printf("输入第%d个数字\n", record);
+
+		scanf_s("%d",&input);
+		if (input > max) {
+			max = input;
+		}
+		if (input < min || min==0) {
+			min = input;
+		}
+		
+		if (record == number) {
+			break;
+		}
+	}
+	printf("最大值为%d\n最小值为%d\n", max, min);
+	return 0;
+}
+
+//
+//小结学习到的
+//
+//continue会把你后续的代码一并丢掉，示例：
+if (min < input && input < max) {
+    continue;
+}
+if (record == number) {
+    break;
+}
+//continue执行后break会被丢弃接着进入循环
+//如果希望不要如此，并且什么都不发生的把一个数据丢掉，可以直接不写：
+for (; 1; record++) {
+    printf("输入第%d个数字\n", record);
+    scanf_s("%d", &input);
+
+    if (input > max) {
+        max = input;
+    }
+    if (input < min || min == 0) {
+        min = input;
+    }
+    // 这里不需要 continue，什么都不做就是"不更新"
+
+    if (record == number) {
+        break;
+    }
+}
+//
+
+
+
+
+//
+//示范对照
+//
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("请输入数字个数：");
+    scanf_s("%d", &n);
+
+    int x;  
+    int max, min;
+
+    // 先读第一个数，作为 max 和 min 的初始值
+    printf("请输入第 1 个数：");
+    scanf_s("%d", &x);
+    max = x;
+    min = x;
+
+    // 从第二个数开始比较
+    for (int i = 2; i <= n; i++) {
+        printf("请输入第 %d 个数：", i);
+        scanf_s("%d", &x);
+
+        if (x > max) max = x;
+        if (x < min) min = x;
+    }
+
+    printf("最大值是：%d\n", max);
+    printf("最小值是：%d\n", min);
+
+    return 0;
+}
