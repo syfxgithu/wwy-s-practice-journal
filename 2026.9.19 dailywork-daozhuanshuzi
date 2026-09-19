@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<math.h>
+int main() {
+	printf("请输入需要倒序的正整数\n");
+	int number = 0;
+	int record = 0;
+	int middle = 0;
+	int input = 0;
+	int a = 0;	int b = 0;
+	int c = 0;
+	double d = 0;
+	scanf_s("%d", &number);
+	c = number;
+	while (1) {
+		c /= 10;
+		b++;
+		if (c == 0) {
+			break;
+		}
+	}
+	d = b - record;
+	for (;number > record; record++) {
+		middle = number % 10;
+		number /= 10;
+		a = middle * (int)pow(10, d);
+		input += a;
+	}
+	printf("您所输入的数字倒序为： %d", input);
+	return 0;
+}
+
+
+
+//要记住这个公式就能解决这个问题:
+// digit  = n % 10;              // 取个位
+// result = result * 10 + digit; // 结果左移一位，把新位放进个位
+// n      = n / 10;              // 去掉个位
+
+
+
+//以下是示范性代码：
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("请输入一个正整数：");
+    scanf_s("%d", &n);
+
+    int result = 0;
+
+    while (n > 0) {
+        int digit = n % 10;            // 取末位
+        result = result * 10 + digit;  // 拼到结果后面
+        n = n / 10;                    // 去掉末位
+    }
+
+    printf("反转后是：%d\n", result);
+    return 0;
+}
