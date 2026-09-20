@@ -1,0 +1,32 @@
+//今天做的只有细微问题，所以不做小结和示范性代码
+#include<stdio.h>
+int main() {
+	printf("输入一串正整数");
+	int number = 0;
+	int record = 0; //建议用digit，意为“当前位数字”
+	int a = 0;
+	scanf_s("%d", &number);
+	if (number == 0) {
+		a = 1;
+		printf("您输入的数字中有1个0", a);
+		
+		return 0;
+	}
+	while (number >0) {
+		record = number % 10;
+		number /= 10;
+		if (record == 0) {
+			a++;
+		}
+		if (number == 0) {
+			break;
+		}
+		
+	}
+	
+	
+	printf("您输入的数字中有%d个0", a);
+	return 0;
+	
+}
+	
