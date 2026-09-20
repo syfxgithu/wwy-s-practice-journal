@@ -1,0 +1,22 @@
+//本题同样写的比较好所以就放作业
+#include<stdio.h>
+int main() {
+	printf("输入一串数字，我看看哪个数字最大");
+	int number = 0;
+	int digit = 0;
+	int input = 0;
+	scanf_s("%d", &number);
+	if (number == 0) {
+		printf("最大值就是0");
+		return 0;
+	}
+	while (number>0) {
+		digit = number % 10;
+		number /= 10;
+		if (input < digit) {
+			input = digit;
+		}
+	}
+	printf("最大值为%d", input);
+	return 0;
+}
