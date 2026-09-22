@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main() {
+	printf("输入一个数字，我会告诉你它从1到9与之相乘的结果\n");
+	int input = 0;
+	int number = 0;
+	int output = 0;
+	scanf_s("%d", &input);
+	for (number = 1;number <= 9;number++) {
+		output = input * number;
+		printf("%d*%d==%d\n",input,number,output);
+
+	}
+	return 0;
+}
