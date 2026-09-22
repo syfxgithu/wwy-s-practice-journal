@@ -1,0 +1,11 @@
+#include<stdio.h>
+int main() {
+	int number = 0;
+	printf("输入一个数我会倒着打印\n");
+	scanf_s("%d", &number);
+
+	for (;number >= 1;number--) {
+		printf("%d\n", number);
+	}
+	return 0;
+}
