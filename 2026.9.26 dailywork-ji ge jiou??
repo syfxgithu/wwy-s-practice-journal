@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main() {
+	printf("输入一串或一个数字，我会告诉你它有几个奇数和偶数\n");
+	int input = 0;
+	int number = 0;
+	int one = 0;
+	int two = 0;
+	scanf_s("%d", &input);
+	while(input>0) {
+		
+		number = input % 10;
+		input /= 10;
+		if (number % 2 == 0) {
+			two++;
+		}
+		else if (number % 2 != 0) {
+			one++;
+		}
+	}
+	printf("奇数有%d个，偶数有%d个\n", one, two);
+	return 0;
+}
