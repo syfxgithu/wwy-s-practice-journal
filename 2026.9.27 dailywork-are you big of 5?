@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main() {
+	printf("输入一串数字，我会统计与5的关系以及数量\n");
+	int input = 0;
+	int big = 0;
+	int middle = 0;
+	int small = 0;
+	int number = 0;
+	scanf_s("%d", &input);
+	for (;input != 0;input /= 10) {
+		number = input % 10;
+		if (number < 5) {
+			small++;
+		}
+		else if (number > 5) {
+			big++;
+		}
+		else {
+			middle++;
+		}
+
+	}
+	printf("这一串数字中有\n大于5的数%d个\n等于5的数%d个\n小于5的数%d个\n", big, middle, small);
+	return 0;
+}
