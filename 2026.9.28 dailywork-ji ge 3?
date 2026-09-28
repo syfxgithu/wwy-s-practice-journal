@@ -1,0 +1,19 @@
+#include<stdio.h>
+int main() {
+	printf("输入一串数字我会告诉你里面有几个3\n");
+	int input = 0;
+	int number = 0;
+	int th = 0;
+	scanf_s("%d", &input);
+	for (;input > 0;input /= 10) {
+		number = input % 10;
+		if (number == 3) {
+			th++;
+		}
+		else {
+			continue;
+		}
+	}
+	printf("你输入的这一串数字中，\n有%d个3\n", th);
+	return 0;
+}
