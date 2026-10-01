@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main() {
+	printf("输入 首项，公差，项数\n");
+	int fir = 0;
+	int sec = 0;
+	int th = 0;
+	int number = 0;
+	int output = 0;
+	printf("现在输入首项\n");
+	scanf_s("%d", &fir);
+	printf("现在输入公差\n");
+	scanf_s("%d", &sec);
+	printf("现在输入项数\n");
+	scanf_s("%d", &th);
+
+
+	for (number = 1;number <= th;number++) {
+		
+		printf("%d", fir);
+		fir += sec;
+	}
+	return 0;
+}
