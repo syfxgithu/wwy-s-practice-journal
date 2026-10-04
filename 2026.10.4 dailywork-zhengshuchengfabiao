@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main() {
+	printf("输入数字input，我会输出1到input的九九乘法表\n");
+	int input = 0;
+	int a = 0;
+	int b = 0;
+	int output = 0;
+	int number = 0;
+	scanf_s("%d", &input);
+	if (input <= 0) {
+		printf("你输入的值在传统99乘法表不适用，进程已终结\n");
+		return 0;
+	}
+	for(number = 1;number <= input;number++) {
+		a = number;
+		for (b = 1;b <= a;b++) {
+			output = a * b;
+			printf("%d * %d = %d  ", b, a, output);
+		}
+		printf("\n");
+	}
+	return 0;
+}
