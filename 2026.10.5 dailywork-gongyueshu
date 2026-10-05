@@ -1,0 +1,84 @@
+// 此题暴露了我作为初学者有思路但是不知道如何优化代码的问题
+//我的代码
+#include<stdio.h>
+int main() {
+	printf("输入两个数字，我会告诉你他们的最大公约数\n");
+	int a = 0;
+	int b = 0;
+	int c = 0;  //虽然可以用if(b>a) b=a,但是这样稍微直观点
+	int d = 0;  // xaio de
+	int number = 0;
+	int output1 = 0;
+	int output2 = 0;
+	int output = 0;
+	int cant = -1;
+	printf("现在，输入第一个数:\n");
+	scanf_s("%d", &a);
+	printf("现在，输入第二个数:\n");
+	scanf_s("%d", &b);
+	if (a > b) {
+		c = a;
+		d = b;
+	}
+	else {
+		c = b;
+		d = a;
+	}
+	if (a == 0 || b == 0) {
+		printf("任何数字与0的最大公约数都为0\n");
+		return 0;
+	}
+	if (c % d != 0) {
+		cant = d;
+	}
+	for (number = 1;number <= c;number++) {
+		if (c % number != 0) {
+			continue;
+		}
+		if (c % number == 0) {
+			output1 = number;
+		}
+	}
+	output2 = output1;
+	for (number = 1;number <= output2;number++) {
+		if (d % number == 0&&number != cant) {
+			output = number;
+		}
+	}
+	printf("您输入的两个值：%d %d\n最大公约数为：%d\n", a, b, output);
+	return 0;
+}
+
+
+
+
+//以下为deepseek指导用的改进型代码，作为补充
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    printf("请输入两个正整数：");
+    scanf_s("%d %d", &a, &b);
+
+    if (a == 0 || b == 0) {
+        printf("两数不能为 0\n");
+        return 0;
+    }
+
+    int min;
+    if (a < b) {
+        min = a;
+    } else {
+        min = b;
+    }
+
+    int gcd = 1;
+    for (int i = 1; i <= min; i++) {
+        if (a % i == 0 && b % i == 0) {
+            gcd = i;
+        }
+    }
+
+    printf("最大公约数是：%d\n", gcd);
+    return 0;
+}
