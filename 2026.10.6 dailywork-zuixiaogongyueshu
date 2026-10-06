@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main() {
+	printf("输入两个数字，我会告诉你他们的最小公倍数\n");
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int output = 0;
+	int number = 1;
+	printf("现在输入第一个数字：\n");
+	scanf_s("%d", &a);
+	printf("现在输入第二个数字：\n");
+	scanf_s("%d", &b);
+	if (b>a) {
+		c = a;
+		a = b;
+		b = c;
+	}
+	while (1) {
+		if (number % a == 0 && number % b == 0) {
+			output = number;
+			break;
+		}
+		else {
+			number++;
+		}
+	}
+	printf("你输入的两个值：%d %d\n最小公倍数为：%d\n", a, b, output);
+	return 0;
+}
