@@ -1,0 +1,62 @@
+#include<stdio.h>
+int main() {
+	printf("输入一串数字，我会告诉你\n这是几位数\n他们之中最大的数\n这一串数字所有数字之和\n");
+	int input = 0;
+	int number = 0;
+	int output = 0;
+	int a = 0;
+	int b = 0;
+	int bt = 0;
+	int c = 0;
+	scanf_s("%d", &input);
+	int original = input;
+	if (input <= 0) {
+		printf("你输入的值为非正整数，请输入正整数\n");
+		return 0;
+	}
+	a = input;
+	for (;a != 0;number++) {
+		a /= 10;
+
+	}
+	a = number; //几位数
+	bt = input;
+	while (1) {
+		number = 0;
+		number = bt % 10;
+		if (number > b) {
+			b = number;
+		}
+		bt /= 10;
+		if (bt == 0) {
+			break;
+		}
+	} //最大数
+
+	while (1) {
+		c += input % 10;
+		input /= 10;
+		if (input <= 0) {
+			break;
+		}
+	} //之和
+	printf("这串数字%d为\n%d位数\n最大数为%d\n所以数字之和为%d\n", input, a, b, c);
+	return 0;
+}
+
+//我的代码还是变量多，不直观，有点杂，以下给出deepseek改正部分
+//while (input > 0) {
+//    int digit = input % 10;
+//    count++;                            
+//    sum += digit;                       
+//    if (digit > maxDigit) maxDigit = digit;  
+//    input /= 10;
+//}
+//三个变量，一次循环，效率高，代码短。
+
+//int count = 0;
+//while (input > 0) {
+//    input /= 10;
+//    count++;
+//} 
+//在计算几位数时可以直接用a进行计算，不用number记好又赋值，但是一定记得最后出循环后要把input的值重新赋值回去不然是0
