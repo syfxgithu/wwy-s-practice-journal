@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main() {
+	printf("输入你们班一共多少人，接下来我会逐个采集分数，告诉你你们班有多少个及格及以上，以及及格的人的平均分\n接下来输入“你们班有几人？”\n");
+	int people = 0;
+	scanf_s("%d", &people);
+	int number = 0;
+	int mark = 0;
+	int six = 0;
+	double average = 0;
+	if (people <= 0) {
+		printf("人数不能为除了正整数的值，请重新进入程序\n");
+		return 0;
+	}
+	for (number = 1;number <= people;number++) {
+		printf("输入第%d个同学的分数\n",number);
+		scanf_s("%d", &mark);
+		if (mark >= 60) {
+			six++;
+			average += mark;
+			continue;
+		}
+
+	}
+	if (six == 0) {
+		printf("你们班0人及格，平均分为0\n");
+		return 0;
+	}
+	average = average / six;
+	printf("你们班一共%d人\n当中及格人数%d人\n及格线以上人平均分%.2f分\n", people, six, average);
+	return 0;
+}
