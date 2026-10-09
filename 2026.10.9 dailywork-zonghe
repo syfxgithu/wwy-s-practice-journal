@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main() {
+	printf("输入一串数字正整数字\n");
+	int input = 0;
+	int number = 0;
+	int add = 0;
+	int max = 0;
+	int turn = 0;
+	int output = 0;
+	scanf_s("%d", &input);
+	turn = input;
+	if (input <= 0) {
+		printf("你输入的值是非正整数，请重新进入进程\n ");
+		return 0;
+	}
+	for (;input!=0;input/=10) {
+		output = input % 10;
+		if (output > max) {
+			max = output;
+		}
+		number++;
+		add += output;
+	}
+	printf("位数：%d\n各位之和:%d\n最大数字:%d\n",number,add,max);
+	printf("反转之后:");
+	for (;turn != 0;turn /= 10) {
+		
+		printf("%d", turn % 10);
+	}
+	
+	return 0;
+}
