@@ -1,0 +1,31 @@
+#include<stdio.h>
+int main() {
+	printf("输入一个正整数n，我会生成一个n行的金字塔\n");
+	int n = 0;
+	int back = 0;
+	int backt = 0;
+	int number = 0;
+	int numbert = 0;
+	int hang = 0;
+	scanf_s("%d", &n);
+	if (n <= 0) {
+		printf("你输入的值不符合要求，请重新进程\n");
+		return 0;
+	}
+	for (hang = 1;hang <= n;hang++) {
+		number = hang;
+		back = (n - hang);
+		for (backt=1;backt <= back;backt++) {
+			printf(" ");
+		}
+		for (numbert=1;numbert <= number;numbert++) {
+			if (numbert != 1) {
+				printf(" ");
+			}
+			printf("%d", numbert);
+			
+		}
+		printf("\n");
+	}
+	return 0;
+}
