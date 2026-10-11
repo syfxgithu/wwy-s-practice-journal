@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main() {
+	printf("输入一串数字，我会告诉你它是不是回数\n");
+	int input = 0;
+	scanf_s("%d",&input);
+	int output = 0;
+	int re = 0;
+	int cheng = 1;
+	if (input<=0) {
+		printf("你输入了非正整数，请重新进程\n");
+		return 0;
+	}
+	re = input;
+	for (;input != 0;input /= 10) {
+		
+		output += input % 10 * cheng;
+		cheng *= 10;
+	}
+	if (output == re) {
+		printf("你输入的数是回数\n");
+	}
+	else {
+		printf("你输入的数不是回数\n");
+	}
+	return 0;
+}
