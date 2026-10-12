@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main() {
+	printf("输入一个数字n，我会告诉你1到它的各个正整数的立方\n");
+	int n = 0;
+	scanf_s("%d", &n);
+	if (n <= 0) {
+		printf("你输入的数值n是非正整数，请重新开始进程\n");
+		return 0;
+	}
+	int number = 1;
+	for (;number <= n;number++) {
+		printf("%d的立方是:%d\n", number, number * number * number);
+	}
+	return 0;
+}
