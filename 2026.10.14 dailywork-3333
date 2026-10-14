@@ -1,0 +1,41 @@
+#include<stdio.h>
+int main() {
+	printf("输入两个正整数\n");
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int number = 0;
+	int numbert = 0;
+	int fir = 0;
+	int sec = 0;
+	int output = 0;
+	printf("输入第一个数字\n");
+	scanf_s("%d", &a);
+	printf("输入第二个数字\n");
+	scanf_s("%d", &b);
+	if (b < a) {
+		c = a;
+		a = b;
+		b = c;
+	}
+	
+	for (numbert = a;numbert <= b;numbert++) {
+		number = numbert;
+		while (1) {
+			fir = number % 10;
+			number /= 10;
+			sec += fir;
+			
+			if (number == 0) {
+				break;
+			}
+		}
+		
+		if (sec % 3 == 0 && sec != 0) {
+			output++;
+		}
+		sec = 0;
+	}
+	printf("符合条件的值有%d个", output);
+	return 0;
+}
