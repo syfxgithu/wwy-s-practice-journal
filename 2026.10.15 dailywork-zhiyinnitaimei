@@ -1,0 +1,91 @@
+#include<stdio.h>
+int main() {
+	printf("输入一个正整数\n");
+	
+	int n = 0;
+	int n_zys = 0;
+	int n_chu = 0;
+	
+	scanf_s("%d", &n);
+	if (n <= 0) {
+		printf("你输入的是非正整数，请重新进程\n");
+		return 0;
+	}
+	n_chu = n;
+	int zys = 0; //质数
+	int yin = 0; //因数
+	int test_zys = 1;
+
+	
+	int arr[999];
+	
+	int number = 1;
+	int number_zys = 0;
+	for (;number <= n;number++) {
+		test_zys = 1;
+		number_zys = 1;
+		if (n % number == 0) {
+			yin = number;
+			for (;test_zys <= yin;test_zys++) {
+				if (yin % test_zys == 0) {
+					number_zys++;
+					
+				}
+			}
+			if (number_zys > 2) {
+				continue;
+			}
+			else if (number_zys == 2) {
+				zys = yin;
+				arr[n_zys] = zys;
+				n_zys++;
+			}
+		}
+	}
+	for (n_zys = 1;n_chu != 1;n_zys++) {
+		if (n_chu % arr[n_zys] == 0) {
+			printf("%d", arr[n_zys]);
+			n_chu /= arr[n_zys];
+			n_zys = 1;
+			
+		}
+		if (n_chu != 1) {
+			printf("*");
+		}
+		else {
+			printf("=%d", n);
+			break;
+		}
+	}
+	return 0;
+}
+//我的太复杂了不用这样，直接暴力穷举就好了。
+//以下是deepseek的解析原代码作为反思示例
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("请输入一个大于 1 的正整数：");
+    scanf_s("%d", &n);
+
+    if (n <= 1) {
+        printf("请输入大于 1 的正整数\n");
+        return 0;
+    }
+
+    printf("%d = ", n);
+
+    int temp = n;   // 保存原数用于打印
+
+    for (int i = 2; i <= temp; i++) {
+        while (temp % i == 0) {
+            printf("%d", i);
+            temp /= i;
+            if (temp > 1) printf(" × ");
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
