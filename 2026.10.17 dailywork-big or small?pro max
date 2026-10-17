@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main() {
+	printf("输入你想要输入多少个数字\n");
+	int n = 0;
+	scanf_s("%d", &n);
+	int arr[10];
+	int arr_n = 0;
+	if (n <= 0) {
+		printf("你输入的数值是非正整数，请重新尝试进程\n");
+		return 0;
+	}
+	for (int input = 0;arr_n < n;arr_n++) {   //输入数字进入数组
+		printf("输入第%d个数:\n", arr_n + 1);
+		scanf_s("%d", &input);
+		arr[arr_n] = input;
+		
+	}
+
+	int a = 0;  //大的
+	int a_d = 0;
+	int b = 0;  //小的
+	int b_d = 0;
+	for (arr_n = 0;arr_n < n;arr_n++) {    //判断大小
+		if (arr[arr_n] < b) {
+			b = arr[arr_n];
+			b_d = arr_n + 1;
+		}
+		else if (arr[arr_n] > a) {
+			a = arr[arr_n];
+			a_d = arr_n + 1;
+		}
+		if ( b == 0) {
+			b = arr[arr_n];
+			b_d = arr_n + 1;
+		}
+		else {
+			continue;
+		}
+	}
+
+	printf("最大值是%d,下标为%d\n最小值为%d,下标为%d\n", a, a_d, b, b_d);
+	return 0;
+}
