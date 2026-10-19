@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main() {
+	printf("输入n个整数，我会告诉你哪些是偶数以及在什么下标\n");
+	int n = 0;
+	int number = 0;
+	int arr[100];
+	scanf_s("%d", &n);
+	if (n <= 0 || n > 100) {
+		printf("你输入的数值不在范围内，请重新进程\n");
+		return 0;
+	}
+	for (int input=0;number < n;number++) {
+		printf("输入第%d个数:\n", number + 1);
+		scanf_s("%d", &input);
+		arr[number] = input;
+	}
+	number -= 1;
+	for (;number >= 0;number--) {
+		if (arr[number] % 2 == 0) {
+			printf("输入数%d是偶数，下标%d\n", arr[number], number);
+
+		}
+	}
+	return 0;
+}
