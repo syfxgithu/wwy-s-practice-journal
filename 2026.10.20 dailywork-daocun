@@ -1,0 +1,29 @@
+#include<stdio.h>
+int main() {
+	printf("输入你想输多少个正整数,最多不得超过100个\n");
+	int n = 0;
+	scanf_s("%d", &n);
+	int arr[100];
+	int input = 0;
+	int number = 0;
+	for (;number < n;number++) {
+		printf("输入第%d个数\n", number + 1);
+		scanf_s("%d", &input);
+		
+		arr[number] = input;
+		
+	}
+	number = number - 1;
+	int turndown[100];
+	int numberturn = 0;
+	for (;number >= 0;number--) {
+		turndown[numberturn] = arr[number];
+		numberturn++;
+	}
+	numberturn = 0;
+	while (numberturn < n) {
+		printf("%d ", turndown[numberturn]);
+		numberturn++;
+	}
+	return 0;
+}
