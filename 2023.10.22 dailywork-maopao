@@ -1,0 +1,116 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("请输入数字个数：");
+    scanf_s("%d", &n);
+
+    // 1. 判断边界（用 ||）
+    if (n <= 0 || n > 100) {
+        printf("输入不在范围内\n");
+        return 0;
+    }
+
+    int arr[100];
+    printf("请输入 %d 个数：\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf_s("%d", &arr[i]);
+    }
+
+    // 2. 冒泡排序
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // 交换
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    // 3. 打印结果
+    printf("排序后：");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+//上面为deepseek给的，只要拿出两个为一个单位排序，小的排左边，大的拍右边就好，我的太麻烦，一个数要动一整个队列；以下是我的
+
+#include<stdio.h>
+int main() {
+	printf("输入你想要输入多少个数字，不得超过100\n");
+	int n = 0;
+	scanf_s("%d", &n);
+	int arr[100];
+	if (n <= 0 && n > 100) {
+		printf("你输入的数不在有效范围内，请重新进程\n");
+		return 0;
+	}
+
+	int input = 0;
+	int number = 0;
+	for (;number < n;number++) {
+		scanf_s("%d", &input);
+		arr[number] = input;
+	}
+
+	int turn[100];
+	int chun = 0;
+	int jia = 0;
+	for (number = 0;number < n;number++) {
+		chun = arr[number];
+		for (;jia < n;jia++) {
+			if (chun <= turn[jia]) {
+				turn[jia] = chun;
+				break;
+			}
+		}
+	}
+}
+
+
+//以下是我这种思想完整版本，由deepseek提供
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("请输入数字个数：");
+    scanf_s("%d", &n);
+
+    int arr[100];
+    printf("请输入这些数：\n");
+    for (int i = 0; i < n; i++) {
+        scanf_s("%d", &arr[i]);
+    }
+
+    // 按照你的思路：把数字拿出来，找位置，挪动
+    for (int i = 1; i < n; i++) {
+        int current = arr[i];   // 把当前要排序的数“拿出来”存好（相当于你拿在手里的牌）
+        int j = i - 1;          // 从它前面的那个数开始往前比
+
+        // 你的原话：“比较第一个数，要是小于就记住...发现比他大就开始比第二个”
+        // 代码翻译：只要前面的数比 current 大，就把前面的数往后挪一格
+        while (j >= 0 && arr[j] > current) {
+            arr[j + 1] = arr[j];  // 把第 j 个数往后挪一格，腾出位置
+            j--;                  // 继续往前看更前面的数
+        }
+
+        // 挪完之后，空出来的位置放上 current
+        // 注意：因为上面 j 最后又减了 1，所以空出来的位置是 j + 1
+        arr[j + 1] = current;
+    }
+
+    printf("排序后：");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
