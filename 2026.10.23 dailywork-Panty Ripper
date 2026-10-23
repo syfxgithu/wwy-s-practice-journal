@@ -1,0 +1,80 @@
+#include<stdio.h>
+
+void getit(void* p) {
+	*p = arr[i];
+
+int main() {
+	printf("输入你想输入几个数字，不得超过100个\n");
+	int n = 0;
+	scanf_s("%d", &n);
+	int input = 0;
+	
+	int arr[100];
+	int i = 0;
+
+	if (n < 0 || n>100) {
+		printf("你输入的数值不在有效范围内,请重新进程\n");
+		return 0;
+	}
+	
+	for (int number = 0;number < n;number++) {
+		printf("输入第%d个数\n", number + 1);
+		scanf_s("%d", &input);
+		arr[i] = input;
+		i++;
+	}
+
+	int turn[100];
+	int t = 0;
+	int a = 0;
+
+	for (int number = n;number > 0;number--) {
+		getit(&a);
+		turn[t] = a;
+		printf("%d", turn[t]);
+	}
+
+	
+	}
+}
+
+//我的代码有很多问题，以下是deepseek修改版
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("请输入数字个数：");
+    scanf_s("%d", &n);
+
+    if (n <= 0 || n > 100) {
+        printf("范围错误\n");
+        return 0;
+    }
+
+    int arr[100];
+    for (int i = 0; i < n; i++) {
+        scanf_s("%d", &arr[i]);
+    }
+
+    // ========== 指针登场 ==========
+    int *p;   // 定义一个 int 类型的指针
+
+    // 1. 正着打印
+    printf("正着打印：");
+    for (p = arr; p < arr + n; p++) {
+        // p 指向数组开头，p++ 往后走
+        printf("%d ", *p);  // *p 就是取 p 指向的值
+    }
+    printf("\n");
+
+    // 2. 倒着打印
+    printf("倒着打印：");
+    for (p = arr + n - 1; p >= arr; p--) {
+        // p 指向最后一个元素，p-- 往前走
+        printf("%d ", *p);
+    }
+    printf("\n");
+
+    return 0;
+}
