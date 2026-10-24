@@ -1,0 +1,47 @@
+//歪打正着版（我的）
+#include<stdio.h>
+int main() {
+	printf("输入你想要输入几个数字,不得超过100个\n");
+	int n = 0;
+	scanf_s("%d", &n);
+	
+	if (n < 0 || n>100) {
+		printf("你输入的数值不在有效范围，请重新进程\n");
+		return 0;
+	}
+
+	int arr[100];
+	int i = 0;
+	for (;i < n;i++) {
+		printf("输入第%d个数\n", i + 1);
+		scanf_s("%d", &arr[i]);
+	}
+	i -= 1;
+	int* p;
+	
+	for (p = &arr[0];i >= 0;i--) {
+		if (p<&arr[i]) {
+			p = &arr[i];
+		}
+		
+	}
+	printf("%d", *p);
+	return 0;
+}
+
+//deepseek版
+// 指针 p 指向数组开头
+int *p = arr;       // 等价于 &arr[0]
+
+// 把第一个数当作初始最大值
+int max = *p;
+
+// 从第二个数开始比
+for (int i = 1; i < n; i++) {
+    p++;            // 指针往后挪一格，指向下一个数
+    if (*p > max) {
+        max = *p;   // 更新最大值
+    }
+}
+
+printf("最大值是：%d\n", max);
