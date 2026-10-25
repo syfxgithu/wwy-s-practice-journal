@@ -1,0 +1,34 @@
+#include<stdio.h>
+
+int main() {
+	printf("输入你想要输入几个数字,不超过100个\n");
+	int n = 0;
+	scanf_s("%d", &n);
+	int arr[100];
+	
+	int i = 0;
+	if (n < 0 || n>100) {
+		printf("你输入的数字不在有效范围内\n请重新进程\n");
+		return 0;
+	}
+	for (;i < n;i++) {
+		printf("输入第%d个数\n", i + 1);
+		scanf_s("%d",&arr[i]);
+	}
+
+	
+	int* left = &arr[0];
+	int* right = &arr[n - 1];
+
+	for (int temp = *left;left < right;left++) {
+		*left = *right;
+		*right = temp;
+		right--;
+		
+	}
+
+	for (i = 0;i < n;i++) {
+		printf("%d", arr[i]);
+	}
+	return 0;
+}
