@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main() {
+	int a = 10;
+	int b = 20;
+	int* p = &a;
+	printf("%d\n",*p);
+	*p = 100;
+	printf("赋值后：%d\n", *p);
+	p = &b;
+	printf("换为b：%d\n", *p);
+	*p = 200;
+	printf("赋值200：%d\n", *p);
+	return 0;
+}
